@@ -10,7 +10,7 @@ Available here : https://instant-stresser.com/help/methodsdoc
 
 ## Authentication
 ```php
-require 'InstantStresserAPI.php';
+require 'InstantStresserApi.php';
 // UserID and API Key generated from API Manager website.
 $api = new InstantStresser\InstantStresserApi("UserID", "your-apikey");
 ```
