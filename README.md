@@ -10,9 +10,9 @@ Available here : https://instant-stresser.com/help/methodsdoc
 
 ## Authentication
 ```php
-require 'API.php';
+require 'InstantStresserApi.php';
 // UserID and API Key generated from API Manager website.
-$api = new API("UserID", "your-apikey");
+$api = new InstantStresser\InstantStresserApi("UserID", "your-apikey");
 ```
 
 ## Layer 4 Attack
@@ -28,10 +28,6 @@ $response = $api->startL7("https://example.com/", 15, "HTTP1", 1, "GET", false);
 ## Stop Attack
 ```php
 /* Parameters : Host. */
-$response = $api->stopAttack("1.1.1.1");
-```
-
-## API Response
-```php
+$response = $api->stop("1.1.1.1");
 echo $response; // Get API response.
 ```
