@@ -63,18 +63,19 @@ class API {
 	* @param int $time
 	* @param string $method
 	* @param int $slots
-	* @param string $type
-	* @param bool $ratelimit
+	* @param string $requesttype
+	* @param string $ratelimit
 	* @return string
  	*/
 	
-	public function startL7($host, $time, $method, $slots = 1, $type = "GET", $ratelimit = false){
+	public function startL7($host, $time, $method, $slots = 1, $requesttype = "GET", $origin = "Worldwide", $ratelimit = "false"){
 		$postdata = [
 			'host' => $host,
 			'time' => $time,
 			'method' => $method,
 			'slots' => $slots,
-			'type' => $type,
+			'requesttype' => $requesttype,
+			'origin' => $origin,
 			'ratelimit' => $ratelimit
 		];
 		return $this->send($postdata);
@@ -106,7 +107,6 @@ class API {
 		if(is_null($this->curl_handle)){
 			$this->curl_handle = curl_init($api_url);
 			curl_setopt($this->curl_handle, CURLOPT_RETURNTRANSFER, TRUE);
-			curl_setopt($this->curl_handle, CURLOPT_SSL_VERIFYPEER, FALSE);
 			curl_setopt($this->curl_handle, CURLOPT_ENCODING, "");
 			curl_setopt($this->curl_handle, CURLOPT_MAXREDIRS, 10);
 			curl_setopt($this->curl_handle, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
@@ -117,11 +117,9 @@ class API {
 		switch($response = curl_exec($this->curl_handle)){
 			case false:
 				return curl_error($this->curl_handle);
-			break;
 			default:
 				$response = json_decode($response, true);
 				return $response["message"];
-			break;
 		}
 	}
 }
