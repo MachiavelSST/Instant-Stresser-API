@@ -37,7 +37,7 @@ $host = "https://example.com/";
 $time = "15";
 $method = "JSDOM";
 $slots = 1;
-$requesttype = "GET;
+$requesttype = "GET";
 $ratelimit = "false";
 
 /* Parameters : URL , Time , Method , Slots , Type, Ratelimit (true = enable, false = disabled) */
