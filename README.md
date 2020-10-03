@@ -22,7 +22,7 @@ $api = new API($userID, $apiKey);
 
 $host = "1.1.1.1";
 $port = "80;
-$time = "15";
+$time = 15;
 $method = "CLDAP";
 $slots = 1;
 $pps = 100000;
