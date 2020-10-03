@@ -37,11 +37,12 @@ $host = "https://example.com/";
 $time = "15";
 $method = "JSDOM";
 $slots = 1;
+$origin = "Worldwide";
 $requesttype = "GET";
 $ratelimit = "false";
 
-/* Parameters : URL , Time , Method , Slots , Type, Ratelimit (true = enable, false = disabled) */
-$response = $api->startL7($host, $time, $method, $slots, $requesttype, $ratelimit);
+/* Parameters : URL , Time , Method , Slots , Type, Origin Proxy, Ratelimit (true = enable, false = disabled) */
+$response = $api->startL7($host, $time, $method, $slots, $requesttype, $origin, $ratelimit);
 ```
 ## Stop Attack
 ```php
